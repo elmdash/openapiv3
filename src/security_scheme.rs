@@ -19,7 +19,7 @@ pub enum SecurityScheme {
     #[serde(rename = "http")]
     HTTP {
         scheme: String,
-        #[serde(rename = "bearerFormat")]
+        #[serde(rename = "bearerFormat", skip_serializing_if = "Option::is_none")]
         bearer_format: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
         description: Option<String>,
